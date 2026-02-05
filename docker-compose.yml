@@ -1,9 +1,25 @@
 version: '3.8'
 
 services:
+  # --- RABBITMQ ---
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-server
+    restart: always
+    ports:
+      - "5672:5672"   # Protocollo AMQP
+      - "15672:15672" # Management UI (Dashboard)
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    networks:
+      - my-net
+
+  # --- MQTT BROKER (MOSQUITTO) ---
   mqtt-broker:
     image: eclipse-mosquitto:2
     container_name: mqtt-broker
+    restart: always
     ports:
       - "1883:1883" # Per il backend Java
       - "9001:9001" # Per il frontend React (WebSocket)
@@ -14,11 +30,9 @@ services:
     networks:
       - my-net
 
-
 volumes:
   mosquitto_data:
   mosquitto_log:
-
 
 networks:
   my-net:
