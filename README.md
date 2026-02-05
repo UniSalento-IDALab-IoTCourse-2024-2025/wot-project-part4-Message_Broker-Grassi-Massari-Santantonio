@@ -1,6 +1,6 @@
 # Infrastruttura di Messaging (RabbitMQ & Mosquitto)
 
-Questa directory contiene la configurazione Docker per avviare i servizi di brokeraggio messaggi necessari all'ecosistema FastGo. Il sistema utilizza un approccio ibrido: RabbitMQ per la comunicazione interna tra microservizi e Mosquitto (MQTT) per la comunicazione con i dispositivi IoT e il frontend web.
+Questa directory contiene la configurazione Docker per avviare i servizi di messagging necessari all'ecosistema FastGo. Il sistema utilizza un approccio ibrido: RabbitMQ per la comunicazione interna tra microservizi e Mosquitto (MQTT) per la comunicazione con i dispositivi IoT e il frontend web.
 
 ## File nel Repository
 
